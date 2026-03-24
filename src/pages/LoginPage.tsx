@@ -43,7 +43,7 @@ export default function LoginPage() {
       {/* Forgot password */}
       <div className="mb-8">
         <button className="text-sm text-red-500 hover:text-red-600 transition-colors">
-          forgot password
+          forgot password ?
         </button>
       </div>
 
