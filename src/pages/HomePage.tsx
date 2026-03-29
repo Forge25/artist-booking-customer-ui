@@ -2,7 +2,8 @@ import Header from '../components/Header'
 import HeroSection from '../components/home/HeroSection'
 import SearchSection from '../components/home/SearchSection'
 import CategoryFilter from '../components/home/CategoryFilter'
-import ArtistSection from '../components/home/ArtistSection'
+import ForYouSection from '../components/home/ForYouSection'
+import NearYouSection from '../components/home/NearYouSection'
 import PopularCategory from '../components/home/PopularCategory'
 import CommunityBanner from '../components/home/CommunityBanner'
 import InfoSection from '../components/home/InfoSection'
@@ -16,8 +17,8 @@ export default function HomePage() {
         <HeroSection />
         <SearchSection />
         <CategoryFilter />
-        <ArtistSection title="For You" />
-        <ArtistSection title="Near You" showLocation />
+        <ForYouSection />
+        <NearYouSection />
         <PopularCategory />
         <CommunityBanner />
         <InfoSection />
