@@ -107,7 +107,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-gray-800 pt-5 flex items-center justify-between">
-          <p className="text-gray-500 text-xs">@phrashmika All rights reerved.</p>
+          <p className="text-gray-500 text-xs">@Forge25 All rights reerved.</p>
           <div className="flex items-center gap-6">
             {['Contact', 'Setting', 'Terms', 'Policy'].map((l) => (
               <a key={l} href="#" className="text-gray-400 text-sm hover:text-white transition-colors">{l}</a>
