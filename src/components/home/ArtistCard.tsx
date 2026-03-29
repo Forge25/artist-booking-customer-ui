@@ -1,13 +1,21 @@
+import { useNavigate } from 'react-router-dom'
+
 interface ArtistCardProps {
   name: string
   role?: string
   rating?: number
   location?: string
+  artistId?: string | number
 }
 
-export default function ArtistCard({ name, role = 'Musician', rating, location }: ArtistCardProps) {
+export default function ArtistCard({ name, role = 'Musician', rating, location, artistId = 1 }: ArtistCardProps) {
+  const navigate = useNavigate()
+
   return (
-    <div className="flex flex-col cursor-pointer group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+    <div
+      onClick={() => navigate(`/artist/${artistId}`)}
+      className="flex flex-col cursor-pointer group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
+    >
       {/* Banner image */}
       <div className="relative">
         <img
