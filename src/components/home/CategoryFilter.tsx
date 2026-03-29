@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import FilterModal from './FilterModal'
 
 const categories = [
   {
@@ -70,9 +71,10 @@ const categories = [
 
 export default function CategoryFilter() {
   const [active, setActive] = useState(0)
-  const [filterActive, setFilterActive] = useState(false)
+  const [showFilter, setShowFilter] = useState(false)
 
   return (
+    <>
     <div className="flex items-center py-4 border-b border-gray-100">
       <div className="flex items-center flex-1 justify-between">
         {categories.map((cat, i) => (
@@ -92,19 +94,15 @@ export default function CategoryFilter() {
       </div>
 
       {/* Filter button */}
-      <button
-        onClick={() => setFilterActive(!filterActive)}
-        className={`ml-6 flex items-center gap-2 border rounded-full px-4 py-2 text-sm flex-shrink-0 transition-colors ${
-          filterActive
-            ? 'border-red-500 text-red-500 bg-red-50'
-            : 'border-gray-300 text-gray-600 hover:bg-gray-50'
-        }`}
-      >
+      <button onClick={() => setShowFilter(true)} className="ml-6 flex items-center gap-2 border border-gray-300 rounded-full px-4 py-2 text-sm text-gray-600 flex-shrink-0 transition-colors hover:bg-gray-50 hover:border-gray-400 hover:text-gray-800">
         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" />
         </svg>
         Filter
       </button>
     </div>
+
+    {showFilter && <FilterModal onClose={() => setShowFilter(false)} />}
+    </>
   )
 }
