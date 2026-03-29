@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import BookingModal from '../components/booking/BookingModal'
 
 const tags = [
   { label: 'artist', color: 'bg-purple-100 text-purple-600' },
@@ -35,6 +36,7 @@ function StarRating({ filled, size = 'w-5 h-5' }: { filled: boolean; size?: stri
 }
 
 export default function ArtistProfilePage() {
+  const [showBooking, setShowBooking] = useState(false)
   const [hoverStar, setHoverStar] = useState(0)
   const [selectedStar, setSelectedStar] = useState(0)
   const [review, setReview] = useState('')
@@ -92,7 +94,10 @@ export default function ArtistProfilePage() {
 
                 {/* Booking button */}
                 <div className="flex items-center gap-2 w-full mt-5">
-                  <button className="flex-1 bg-red-600 hover:bg-red-700 text-white font-semibold py-3 rounded-full transition-colors text-sm">
+                  <button
+                    onClick={() => setShowBooking(true)}
+                    className="flex-1 bg-red-600 hover:bg-red-700 text-white font-semibold py-3 rounded-full transition-colors text-sm"
+                  >
                     Booking Now
                   </button>
                   <button className="w-10 h-10 border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors flex-shrink-0">
@@ -323,6 +328,8 @@ export default function ArtistProfilePage() {
       </div>
 
       <Footer />
+
+      {showBooking && <BookingModal onClose={() => setShowBooking(false)} />}
     </div>
   )
 }
