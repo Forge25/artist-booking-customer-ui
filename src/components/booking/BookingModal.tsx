@@ -178,9 +178,11 @@ function Step2({ onPrev, onContinue }: { onPrev: () => void; onContinue: () => v
       {/* Location inputs */}
       <div className="flex items-center gap-3 mb-4">
         <span className="text-sm text-gray-600 font-medium w-16 flex-shrink-0">Location</span>
-        <div className="border border-gray-200 bg-white rounded-xl px-3 py-2 flex items-center gap-2">
-          <span className="text-sm text-gray-700">{city}</span>
-          <svg className="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <div className="relative border border-gray-200 bg-white rounded-xl px-3 py-2 flex items-center gap-2">
+          <select value={city} onChange={e => setCity(e.target.value)} className="text-sm text-gray-700 outline-none bg-transparent appearance-none pr-5 cursor-pointer">
+            {['Colombo','Kandy','Galle','Negombo','Matara'].map(c => <option key={c}>{c}</option>)}
+          </select>
+          <svg className="w-4 h-4 text-gray-400 pointer-events-none absolute right-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
           </svg>
         </div>
@@ -397,7 +399,7 @@ export default function BookingModal({ onClose }: BookingModalProps) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
       {/* Blur overlay */}
-      <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" onClick={onClose} />
+      <div className="absolute inset-0 bg-red-900/20 backdrop-blur-sm" onClick={onClose} />
 
       <div className="relative bg-[#f2f2f2] rounded-2xl flex w-[880px] max-w-[95vw] overflow-hidden shadow-2xl min-h-[500px]">
 

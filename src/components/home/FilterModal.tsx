@@ -26,7 +26,7 @@ export default function FilterModal({ onClose }: FilterModalProps) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
       {/* Backdrop */}
-      <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" onClick={onClose} />
+      <div className="absolute inset-0 bg-red-900/20 backdrop-blur-sm" onClick={onClose} />
 
       {/* Modal */}
       <div className="relative bg-[#f0f0f5] rounded-2xl w-[480px] max-w-[95vw] shadow-2xl overflow-hidden">
